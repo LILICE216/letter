@@ -1,0 +1,80 @@
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #f7cac9, #92a8d1);
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    transform: scale(2);
+}
+
+
+.container {
+    position: absolute;
+    text-align: center;
+}
+
+
+.envelope {
+    position: centrer;
+    right: -25px;
+    top: 100%;
+    width: 220px;
+    height: 160px;
+    background: #e74c3c;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: right 1s ease-in-out, transform 0.8s ease-in-out;
+}
+
+
+.envelope::before {
+    transform: scaleY(-1);
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #c0392b;
+    clip-path: polygon(0% 100%, 50% 0%, 100% 100%);
+    transition: transform 0.8s ease-in-out;
+}
+
+
+.letter {
+    position: absolute;
+    width: 200px;
+    height: 260px;
+    background: white;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(100%);
+    transition: transform 0.8s ease-in-out 0.8s;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+}
+
+
+.open .envelope {
+    right: 50%;
+    top: -50;
+    transform: scaleY(1);
+}
+
+
+.open .envelope::before {
+    transform: rotateX(180deg);
+}
+
+
+.open .letter {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+}
+
+
